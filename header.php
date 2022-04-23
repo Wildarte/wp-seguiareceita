@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="assets/css/post.css">
     <link rel="stylesheet" href="assets/css/category.css">
     <title>Segui a Receita</title>
+    <!-- wp header -->
+    <?php wp_head(); ?>
+    <!-- wp header -->
 </head>
 <body>
 
@@ -21,8 +24,12 @@
             <div class="header_top">
                 <div class="header_top_content container">
                     <div class="header_logo">
+                        <?php
+                            $custom_logo_id = get_theme_mod( 'custom_logo' );
+                            $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                        ?>
                         <a href="#">
-                            <img src="assets/img/logo-small.png" alt="">
+                            <img src="<?= $logo[0] ?>" alt="logo seguiareceita">
                         </a>
                         <div class="header_social_response">
                             <a href="#"><i class="bi bi-facebook"></i></a>

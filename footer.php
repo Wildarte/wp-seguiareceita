@@ -47,6 +47,10 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/script.js"></script>
 
+    <!-- wp footer -->
+    <?php wp_footer(); ?>
+    <!-- wp footer -->
+
     <script>
         $(document).ready(function(){
             $(".owl-carousel").owlCarousel({

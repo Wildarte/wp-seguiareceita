@@ -1,26 +1,26 @@
-<?php include('./header.php') ?>
+<?php get_header() ?>
 
     <main>
 
         <section class="sec_intro">
             <div class="sec_intro_content container">
-                <img class="book_img" src="assets/img/book.png" alt="">
-                <img class="book_img_response" src="assets/img/book-mobile.png" alt="">
-                <img class="book_img_response2" src="assets/img/book-mobile2.png" alt="">
+                <img class="book_img" src="<?= get_template_directory_uri() ?>/assets/img/book.png" alt="">
+                <img class="book_img_response" src="<?= get_template_directory_uri() ?>/assets/img/book-mobile.png" alt="">
+                <img class="book_img_response2" src="<?= get_template_directory_uri() ?>/assets/img/book-mobile2.png" alt="">
                 <div class="owl-carousel m_carousel">
                     <div class="item_carousel">
                         <a href="#">
-                            <img src="assets/img/intro1.jpg" alt="">
+                            <img src="<?= get_template_directory_uri() ?>/assets/img/intro1.jpg" alt="">
                         </a>
                     </div>
                     <div class="item_carousel">
                         <a href="#">
-                            <img src="assets/img/intro2.jpg" alt="">
+                            <img src="<?= get_template_directory_uri() ?>/assets/img/intro2.jpg" alt="">
                         </a>
                     </div>
                     <div class="item_carousel">
                         <a href="#">
-                            <img src="assets/img/intro3.jpg" alt="">
+                            <img src="<?= get_template_directory_uri() ?>/assets/img/intro3.jpg" alt="">
                         </a>
                     </div>
                     
@@ -56,18 +56,18 @@
                     <section class="articles_content_one">
                         <article class="card_content_one post_destaque">
                             <div class="bord_icon_post">
-                                <img class="img_icon_post" src="assets/img/logo-small.png" alt="">
+                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
                             </div>
                             
                             <a href="#">
-                                <img src="assets/img/posts/post1.jpg" alt="">
+                                <img src="<?= get_template_directory_uri() ?>/assets/img/posts/post1.jpg" alt="">
                             </a>
                             <h2>Pizza de calabreza caseira</h2>
                         </article>
 
                         <article class="card_content_one">
                             <div class="bord_icon_post">
-                                <img class="img_icon_post" src="assets/img/logo-small.png" alt="">
+                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
                             </div>
                             <a href="#">
                                 <img src="assets/img/posts/post2.jpg" alt="">
@@ -78,7 +78,7 @@
 
                         <article class="card_content_one">
                             <div class="bord_icon_post">
-                                <img class="img_icon_post" src="assets/img/logo-small.png" alt="">
+                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
                             </div>
                             <a href="#">
                                 <img src="assets/img/posts/post3.jpg" alt="">
@@ -89,7 +89,7 @@
 
                         <article class="card_content_one">
                             <div class="bord_icon_post">
-                                <img class="img_icon_post" src="assets/img/logo-small.png" alt="">
+                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
                             </div>  
                             <a href="#">
                                 <img src="assets/img/posts/post4.jpg" alt="">
@@ -101,7 +101,7 @@
 
                         <article class="card_content_one">
                             <div class="bord_icon_post">
-                                <img class="img_icon_post" src="assets/img/logo-small.png" alt="">
+                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
                             </div>
                             <a href="#">
                                 <img src="assets/img/posts/post5.jpg" alt="">
@@ -134,8 +134,11 @@
                     <a href="#">
                         <img src="assets/img/ads2.jpg" alt="">
                     </a>
-                    
+                    <?php
+                        if(is_active_sidebar('sidebar-1')) dynamic_sidebar('sidebar-1')
+                    ?>
                 </aside>
+                
 
             </div>
 
@@ -143,7 +146,7 @@
 
         <section class="sec_separador container_full">
             <div class="separador_content container">
-                <img src="assets/img/logo-small.png" alt="">
+                <img src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
             </div>
         </section>
 
@@ -286,4 +289,4 @@
     </main>
 
 
-<?php include('./footer.php') ?>
+<?php get_footer() ?>
