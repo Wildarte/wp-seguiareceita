@@ -28,7 +28,7 @@
                             $custom_logo_id = get_theme_mod( 'custom_logo' );
                             $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
                         ?>
-                        <a href="#">
+                        <a href="<?= get_home_url(); ?>">
                             <img src="<?= $logo[0] ?>" alt="logo seguiareceita">
                         </a>
                         <div class="header_social_response">
@@ -37,8 +37,8 @@
                         </div>
                     </div>
                     <div class="header_form">
-                        <form action="">
-                            <input type="search" name="" id="" placeholder="buscar receitas...">
+                        <form action="<?php get_home_url() ?>">
+                            <input type="search" name="s" id="" placeholder="buscar receitas...">
                             <button type="submit"><i class="bi bi-search"></i></button>
                         </form>
                     </div>
@@ -55,15 +55,7 @@
                     <div class="btn_menu_one">
                         <i class="bi bi-list"></i>
                     </div>
-                    <ul>
-                        <li><a href="#">Doces</a></li>
-                        <li><a href="#">Salgados</a></li>
-                        <li><a href="#">Bolos</a></li>
-                        <li><a href="#">Sobremesas</a></li>
-                        <li><a href="#">Tortas</a></li>
-                        <li><a href="#">Sobremesas</a></li>
-                        <li><a href="#">Tortas</a></li>
-                    </ul>
+                    <?php wp_nav_menu(['theme_location' => 'main_menu']) ?>
                 </div>
                 
             </div>

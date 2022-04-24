@@ -30,8 +30,18 @@
 
         register_sidebar([
             'name' => 'Home Page Sidebar One',
-            'id' => 'sidebar-1',
+            'id' => 'sidebar-home-one',
             'description' => 'Sidebar superior da homepage',
+            'before_widget' => '<div class="widget-wrapper">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>'
+        ]);
+
+        register_sidebar([
+            'name' => 'Home Page Sidebar Two',
+            'id' => 'sidebar-home-two',
+            'description' => 'Sidebar inferior da homepage',
             'before_widget' => '<div class="widget-wrapper">',
             'after_widget' => '</div>',
             'before_title' => '<h2 class="widget-title">',
@@ -40,4 +50,15 @@
 
     }
     add_action('widgets_init', 'wp_my_sidebars');
+
+
+    function wpmenus(){
+
+        register_nav_menus([
+            'main_menu' => 'Main Menu',
+            'secondary_menu' => 'Menu Secundário'
+        ]);
+
+    }
+    add_action('after_setup_theme', 'wpmenus');
 ?>

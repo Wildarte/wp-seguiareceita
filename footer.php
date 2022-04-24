@@ -2,7 +2,11 @@
         <div class="footer_content container">
 
             <div class="footer_logo">
-                <img src="assets/img/logo-small.png" alt="">
+                <?php
+                    $custom_logo_id = get_theme_mod( 'custom_logo' );
+                    $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                ?>
+                <img src="<?= $logo[0] ?>" alt="">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex nemo, cupiditate eveniet a autem qui alias numquam velit magni mollitia dolore ipsa, provident facilis. Corporis amet eius consequatur quos voluptatum.</p>
             </div>
 

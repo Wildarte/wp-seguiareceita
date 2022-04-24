@@ -141,10 +141,10 @@
     display: flex;
     padding-top: 20px;
 }
-.content_second_menu ul{
+.content_second_menu .second_menu{
     margin: auto;
 }
-.content_second_menu ul.second_menu{
+.content_second_menu .second_menu ul{
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -152,11 +152,11 @@
     border-radius: 30px;
     background-color: #fff
 }
-.content_second_menu ul.second_menu img{
+.content_second_menu .second_menu ul img{
     width: 32px;
     margin-right: 10px;
 }
-.content_second_menu ul.second_menu li a{
+.content_second_menu .second_menu ul li a{
     color: var(--color-red-dark);
     display: flex;
     align-items: center;
@@ -306,6 +306,16 @@
 .sidebar_1 a img{
     width: 100%;
 }
+.sidebar_1 button[type="submit"]{
+    background-color: transparent;
+    border-radius: 20px;
+    font-size: .9em;
+    border: 1px solid #999;
+    cursor: pointer;
+}
+.sidebar_1 label.wp-block-search__label{
+    padding-bottom: 40px;
+}
 
 /* sidebar one */
 
@@ -349,6 +359,7 @@
     width: 100%;
     padding: 5px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .header_last_post h2{
@@ -719,7 +730,7 @@ footer.footer{
     .header_last_post h2{
         font-size: 1.5em;
     }
-    .content_second_menu ul.second_menu{
+    .content_second_menu .second_menu ul{
         border-radius: 0;
         border: 0;
         border-top: 1px solid var(--color-dark-main);
