@@ -61,4 +61,28 @@
 
     }
     add_action('after_setup_theme', 'wpmenus');
+
+
+
+    //================== adiciona a coluna com o ID na listagem de posts ========================================
+    function add_column( $columns ){
+        $columns['post_id_clmn'] = 'ID'; // $columns['Column ID'] = 'Column Title';
+        return $columns;
+    }
+    add_filter('manage_posts_columns', 'add_column', 5);
+    
+    function column_content( $column, $id ){
+        if( $column === 'post_id_clmn')
+            echo $id;
+    }
+    add_action('manage_posts_custom_column', 'column_content', 5, 2);
+
+
+
+
+
+
+    include('admin/control.php');
+
+
 ?>

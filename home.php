@@ -2,33 +2,37 @@
 
     <main>
 
+    <?php  if(!is_paged()): ?>
+
         <section class="sec_intro">
             <div class="sec_intro_content container">
                 <img class="book_img" src="<?= get_template_directory_uri() ?>/assets/img/book.png" alt="">
                 <img class="book_img_response" src="<?= get_template_directory_uri() ?>/assets/img/book-mobile.png" alt="">
                 <img class="book_img_response2" src="<?= get_template_directory_uri() ?>/assets/img/book-mobile2.png" alt="">
                 <div class="owl-carousel m_carousel">
+                <?php 
+                    
+                    $post_ads = get_option('show_ads_images');
+
+                    if(!empty($post_ads)):
+
+                        for($i = 0; $i < count($post_ads); $i++):
+                
+                ?>
                     <div class="item_carousel">
-                        <a href="#">
-                            <img src="<?= get_template_directory_uri() ?>/assets/img/intro1.jpg" alt="">
+                        <a href="<?= $post_ads[$i][1] ?>">
+                            <img src="<?= $post_ads[$i][0] ?>" alt="">
                         </a>
                     </div>
-                    <div class="item_carousel">
-                        <a href="#">
-                            <img src="<?= get_template_directory_uri() ?>/assets/img/intro2.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="item_carousel">
-                        <a href="#">
-                            <img src="<?= get_template_directory_uri() ?>/assets/img/intro3.jpg" alt="">
-                        </a>
-                    </div>
+
+                    <?php endfor; endif; ?>
                     
                 </div>
             </div>
         </section>
 
         <section class="section_second_menu container_full">
+
             <div class="content_second_menu container">
                 
             <?php wp_nav_menu(['theme_location' => 'secondary_menu', 'container_class' => 'second_menu']); ?><!-- 
@@ -41,7 +45,6 @@
                     <li><a href=""><img src="assets/img/icons/mousse.png" alt=""> Mousses</a></li> 
                 </ul>
                  -->
-
                  
             </div>
 
@@ -149,6 +152,8 @@
             </div>
         </section>
 
+        <?php endif; ?>
+
         <section class="section_last_post container_full">
 
             <div class="last_post_content container">
@@ -159,110 +164,39 @@
                     </header>
 
                     <section class="posts_last_post">
+
+                        <?php
+
+                            if(have_posts()): while(have_posts()): the_post();
+
+                        ?>
+
                         <article class="card_last_post">
                             <a class="link_last_post" href="#">
-                                <img src="assets/img/posts/post9.jpg" alt="">
-                                <h3>churrasco com legumes</h3>
+                                <img src="<?= get_the_post_thumbnail_url() ?>" alt="">
+                                <h3><?= get_the_title(); ?></h3>
                             </a>
                             <div class="bottom_card_last_post">
+                                <?= get_categories() ?>
                                 <a class="link_cat_last_post" href="#">comidas</a>
-                                <time>12/02/2022</time>
+                                <time><?= get_the_date(); ?></time>
                                 
-                                <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
+                                <a class="link_excerpt_last_post" href="#"><?= get_the_excerpt(); ?></a>
                                 
                             </div>
                         </article>
-                        <article class="card_last_post">
-                            <a class="link_last_post" href="#">
-                                <img src="assets/img/posts/post8.jpg" alt="">
-                                <h3>churrasco com legumes</h3>
-                            </a>
-                            <div class="bottom_card_last_post">
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time>12/02/2022</time>
-                                
-                                <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
-                                
+
+
+                        <?php endwhile; endif; ?>
+
+                        <div class="control_posts container">
+                            <div class="control_prev">
+                                <?php previous_posts_link('<i class="bi bi-arrow-left-circle"></i>') ?>
                             </div>
-                        </article>
-                        <article class="card_last_post">
-                            <a class="link_last_post" href="#">
-                                <img src="assets/img/posts/post7.jpg" alt="">
-                                <h3>churrasco com legumes</h3>
-                            </a>
-                            <div class="bottom_card_last_post">
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time>12/02/2022</time>
-                                
-                                <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
-                                
+                            <div class="control_next">
+                                <?php next_posts_link( '<i class="bi bi-arrow-right-circle"></i>' ) ?>
                             </div>
-                        </article>
-                        <article class="card_last_post">
-                            <a class="link_last_post" href="#">
-                                <img src="assets/img/posts/post6.jpg" alt="">
-                                <h3>churrasco com legumes</h3>
-                            </a>
-                            <div class="bottom_card_last_post">
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time>12/02/2022</time>
-                                
-                                <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, doloribus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
-                                
-                            </div>
-                        </article>
-                        <article class="card_last_post">
-                            <a class="link_last_post" href="#">
-                                <img src="assets/img/posts/post5.jpg" alt="">
-                                <h3>churrasco com legumes</h3>
-                            </a>
-                            <div class="bottom_card_last_post">
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time>12/02/2022</time>
-                                
-                                <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
-                                
-                            </div>
-                        </article>
-                        <article class="card_last_post">
-                            <a class="link_last_post" href="#">
-                                <img src="assets/img/posts/post4.jpg" alt="">
-                                <h3>churrasco com legumes</h3>
-                            </a>
-                            <div class="bottom_card_last_post">
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time>12/02/2022</time>
-                                
-                                <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
-                                
-                            </div>
-                        </article>
-                        <article class="card_last_post">
-                            <a class="link_last_post" href="#">
-                                <img src="assets/img/posts/post3.jpg" alt="">
-                                <h3>churrasco com legumes</h3>
-                            </a>
-                            <div class="bottom_card_last_post">
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time>12/02/2022</time>
-                                
-                                <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo quae facilis voluptatibus dignissimos nobis dolores nemo veniam, unde magnam?</a>
-                                
-                            </div>
-                        </article>
-                        <article class="card_last_post">
-                            <a class="link_last_post" href="#">
-                                <img src="assets/img/posts/post2.jpg" alt="">
-                                <h3>churrasco com legumes</h3>
-                            </a>
-                            <div class="bottom_card_last_post">
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time>12/02/2022</time>
-                                
-                                <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
-                                
-                            </div>
-                        </article>
+                        </div>
 
                     </section>
                 </div>
