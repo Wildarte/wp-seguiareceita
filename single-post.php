@@ -1,17 +1,17 @@
-<?php include('./header.php') ?>
+<?php get_header(); ?>
 
     <main>
 
        <section>
            <header class="header_post">
 
-                <h1>Receita de Bolo de Chocolate</h1>
+                <h1><?= get_the_title() ?></h1>
 
            </header>
        </section>
 
        <section class="content_post container">
-            <img class="img_post" src="assets/img/posts/post1.jpg" alt="">
+            <img class="img_post" src="<?= get_the_post_thumbnail_url(null, 'large'); ?>" alt="<?= get_image_alt(get_the_ID()) ?>">
 
             <div class="content_interno_post">
 
@@ -55,11 +55,13 @@
 
                 </div>
 
+                <?php get_sidebar('home-two'); ?>
+                <!-- 
                 <aside class="sidebar_post">
                     <img src="assets/img/ads.jpg" alt="">
                     <img src="assets/img/ads2.jpg" alt="">
                 </aside>
-
+                -->
             </div>
 
             <section class="sec_separador container_full">
@@ -123,4 +125,4 @@
     </main>
 
 
-<?php include('./footer.php') ?>
+<?php get_footer() ?>

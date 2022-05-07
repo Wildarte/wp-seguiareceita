@@ -77,8 +77,24 @@
     }
     add_action('manage_posts_custom_column', 'column_content', 5, 2);
 
+    add_theme_support('post-thumbnails'); //adiciona a boxmeta para adicionar thumbnail no post
+
+    add_image_size('thumb-destaque-top', '880', '390', 'center'); //adiciona um novo tipo de tamanho de thumbnail
+
+    
 
 
+    //função para pegar texto alternativo da imagem ========================================================
+    function get_image_alt($id_page){
+
+        $id_image = get_post_thumbnail_id($id_page);
+
+        $alt_text = get_post_meta($id_image, '_wp_attachment_image_alt', true);
+
+        return $alt_text;
+
+    }
+    //função para pegar texto alternativo da imagem ========================================================
 
 
 

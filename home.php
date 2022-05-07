@@ -61,62 +61,65 @@
                     </header>
 
                     <section class="articles_content_one">
+
+                        <?php 
+
+                            $args_post_top = [
+                                'post_type' => 'post',
+                                'page_id' => get_option('show_posts_destaque_top')
+                            ];
+
+                            $result_post_top = new WP_Query($args_post_top);
+
+                            if($result_post_top->have_posts()):
+                                while($result_post_top->have_posts()):
+                                    $result_post_top->the_post();
+
+                        ?>
+
                         <article class="card_content_one post_destaque">
                             <div class="bord_icon_post">
-                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
+                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="Segui a Receita">
                             </div>
                             
-                            <a href="#">
-                                <img src="<?= get_template_directory_uri() ?>/assets/img/posts/post1.jpg" alt="">
+                            <a href="<?= get_the_permalink(); ?>">
+                                <img src="<?= get_the_post_thumbnail_url(null, 'thumb-destaque-top') ?>" alt="<?= get_image_alt(get_the_ID()) ?>">
                             </a>
-                            <h2>Pizza de calabreza caseira</h2>
+                            <h2><?= get_the_title() ?></h2>
                         </article>
+
+
+                        <?php
+
+                                endwhile; endif; wp_reset_query();
+
+                                $post_selected_list = get_option('show_posts_destaque_list');
+
+                                $args_post_list = [
+                                    'post_type' => 'post',
+                                    'post__in' => $post_selected_list
+                                ];
+
+                                $result_post_list = new WP_Query($args_post_list);
+
+                                if($result_post_list->have_posts()):
+                                    while($result_post_list->have_posts()):
+                                        $result_post_list->the_post();
+
+                        ?>
 
                         <article class="card_content_one">
                             <div class="bord_icon_post">
                                 <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
                             </div>
-                            <a href="#">
-                                <img src="assets/img/posts/post2.jpg" alt="">
+                            <a href="<?= get_the_permalink(); ?>">
+                                <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="<?= get_image_alt(get_the_ID()) ?>">
                             </a>
                             
-                            <h2>Risoles</h2>
+                            <h2><?= get_the_title() ?></h2>
                         </article>
 
-                        <article class="card_content_one">
-                            <div class="bord_icon_post">
-                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
-                            </div>
-                            <a href="#">
-                                <img src="assets/img/posts/post3.jpg" alt="">
-                            </a>
-                            
-                            <h2>churrasco gringo</h2>
-                        </article>
-
-                        <article class="card_content_one">
-                            <div class="bord_icon_post">
-                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
-                            </div>  
-                            <a href="#">
-                                <img src="assets/img/posts/post4.jpg" alt="">
-                            </a>
-                            
-                            <h2>salada gourme</h2>
-                        </article>
-                        
-
-                        <article class="card_content_one">
-                            <div class="bord_icon_post">
-                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
-                            </div>
-                            <a href="#">
-                                <img src="assets/img/posts/post5.jpg" alt="">
-                            </a>
-                            <h2>Panqueca de queijo</h2>
-                        </article>
-
-                        
+                       <?php endwhile; endif; wp_reset_query(); ?>
 
                     </section>
 
@@ -148,7 +151,7 @@
 
         <section class="sec_separador container_full">
             <div class="separador_content container">
-                <img src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
+                <img src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="Segui a Receita">
             </div>
         </section>
 
@@ -172,8 +175,8 @@
                         ?>
 
                         <article class="card_last_post">
-                            <a class="link_last_post" href="#">
-                                <img src="<?= get_the_post_thumbnail_url() ?>" alt="">
+                            <a class="link_last_post" href="<?= get_the_permalink() ?>">
+                                <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="">
                                 <h3><?= get_the_title(); ?></h3>
                             </a>
                             <div class="bottom_card_last_post">
@@ -181,7 +184,7 @@
                                 <a class="link_cat_last_post" href="#">comidas</a>
                                 <time><?= get_the_date(); ?></time>
                                 
-                                <a class="link_excerpt_last_post" href="#"><?= get_the_excerpt(); ?></a>
+                                <a class="link_excerpt_last_post" href="<?= get_the_permalink() ?>"><?= get_the_excerpt(); ?></a>
                                 
                             </div>
                         </article>
