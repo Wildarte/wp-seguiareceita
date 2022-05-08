@@ -91,9 +91,20 @@
 
                         ?>
 
+                        
                     </section>
 
                     <?php  endif; ?>
+
+                    <div class="control_posts container">
+                            <div class="control_prev">
+                                <?php previous_posts_link('<i class="bi bi-arrow-left-circle"></i>') ?>
+                            </div>
+                            <div class="control_next">
+                                <?php next_posts_link( '<i class="bi bi-arrow-right-circle"></i>' ) ?>
+                            </div>
+                        </div>
+
                 </div>
                 
                 <?php get_sidebar('home-two'); ?>

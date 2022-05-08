@@ -19,6 +19,9 @@
     }
     add_action('wp_enqueue_scripts', 'load_scripts');
 
+
+
+
     // gerenciamento de logo
     function ed_custom_logo() {
         add_theme_support('custom-logo'); 
@@ -97,8 +100,7 @@
     //função para pegar texto alternativo da imagem ========================================================
 
 
-
     include('admin/control.php');
-
+    include('admin/posts/postField.php')
 
 ?>

@@ -9,7 +9,7 @@
     background-color: var(--color-yellow);
 }
 
-.header_category h2{
+.header_category h2, .header_category h3{
     font-size: 2.5em;
     text-shadow: 2px 2px 10px #222;
     color: #fff;

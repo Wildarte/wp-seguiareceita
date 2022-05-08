@@ -4,8 +4,6 @@
     justify-content: center;
     text-align: center;
     background-color: var(--color-yellow);
-    box-shadow: 2px 2px 10px #222;
-    background-image: url('../img/back_post.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -13,7 +11,6 @@
     padding: 40px 10px;
     font-size: 2.5em;
     text-transform: uppercase;
-    text-shadow: 1px 1px 4px #999;
 }
 
 .content_post .img_post{
@@ -88,6 +85,8 @@
 .content_posts_relacionados{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 40px;
 }
 .content_posts_relacionados .card_last_post{
     flex-basis: calc(33.33% - 20px);
@@ -95,6 +94,17 @@
 }
 /* posts relacionados */
 
+ul.list_ingredientes{
+    list-style: none;
+}
+.list_ingredientes li{
+    font-size: 1.2em!important;
+    line-height: 1.5em;
+    text-transform: uppercase;
+}
+.list_ingredientes li i{
+    margin-right: 10px;
+}
 
 
 @media(max-width: 768px){

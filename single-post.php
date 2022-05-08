@@ -10,48 +10,57 @@
            </header>
        </section>
 
-       <section class="content_post container">
+       <section class="content_post container" style="background-color: #fff">
             <img class="img_post" src="<?= get_the_post_thumbnail_url(null, 'large'); ?>" alt="<?= get_image_alt(get_the_ID()) ?>">
 
             <div class="content_interno_post">
 
                 <div class="content_post_left">
 
-                    <p>
-                        Hoje vamos fazer uma receita de bolo de chocolate deliciosa, é uma receita ideal para acompanhar as sobremesas complementar cafés da manhã, incrementar aquela festinha em família onde cada um leva um prato, ótima para cafés da tarde ou seja é uma receita feita para todas as ocasiões.
-                    </p>
+                    
+                    <?= get_the_content(); ?>
+                        
+
+                    <?php
+                        //caso o botão exibir receita esteja marcado 
+                        if(get_post_meta( get_the_ID(), 'show_receita', true )):
+                    ?>
 
                     <h2>Ingredientes:</h2>
 
-                    <ul>
-                        <li>2 xícaras (chá) de farinha de trigo</li>
-                        <li>1 e meia xícara (chá) de açúcar</li>
-                        <li>1 xícara (chá) de Chocolate em Pó NESTLÉ® DOIS FRADES®</li>
-                        <li>
-                            1 colher (sopa) de fermento em pó
-                        </li>
-                        <li>
-                            meia colher (chá) de bicarbonato de sódio
-                        </li>
-                        <li>
-                        1 xícara (chá) de óleo
-                        </li>
-                        <li>
-                        3 ovos
-                        </li>
-                        <li>
-                        2 xícaras (chá) de água fervente
-                        </li>
+                    <ul class="list_ingredientes">
+                        <?php 
+                        
+                            $ingredientes = get_post_meta( get_the_ID(), 'ingredientes_list', true );
+
+                            if(is_array($ingredientes)):
+
+                                foreach($ingredientes as $item){
+
+                                    echo "<li><i class='bi bi-check-lg'></i>".$item['ingrediente_item']."</li>";
+    
+                                }   
+
+                            endif;
+
+                           
+                            
+                        ?>
+
+                       
                     </ul>
 
+                    
+                    <h2>Modo de Preparo:</h2>
 
-                    <h2>Modo de Preparo</h2>
+                    <?php
 
-                    <p>Em um recipiente, misture a farinha de trigo, o açúcar, o Chocolate em Pó DOIS FRADES, o fermento e o bicarbonato peneirados.</p>
+                        $modo_preparo = get_post_meta( get_the_ID(), 'preparo_receita', true ); 
+                        echo $modo_preparo;
 
-                    <p>Junte o óleo, os ovos e a água fervente, misturando bem.</p>
+                        endif;
+                    ?>
 
-                    <p>Despeje a massa em uma forma de furo central (24 cm de diâmetro) untada com óleo e polvilhada com farinha de trigo, e leve ao forno médio (180°C), preaquecido, por 40 minutos.</p>
 
                 </div>
 
@@ -66,21 +75,43 @@
 
             <section class="sec_separador container_full">
                 <div class="separador_content container">
-                    <img src="assets/img/logo-small.png" alt="">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
                 </div>
             </section>
 
             <section class="posts_relacionados">
+
+                <?php
+                        $cat_post = get_the_category()[0]->slug;
+
+
+                        $args_cat_post = [
+                            'post_type' => 'post',
+                            'category_name' => $cat_post,
+                            'post__not_in' => [''.get_the_ID().''],
+                            'posts_per_page' => 3
+                        ];
+        
+                        $results_cat_post = new WP_Query($args_cat_post);
+                        
+                        
+                        if($results_cat_post->have_posts()):
+                ?>  
 
                 <header class="header_post_relacionados">
                     <h3>Receitas Relacionadas</h3>
                 </header>
 
                 <section class="content_posts_relacionados">
+
+                          
+                    
+                    <?php while($results_cat_post->have_posts()): $results_cat_post->the_post(); ?>
+
                     <article class="card_last_post">
                         <a class="link_last_post" href="#">
                             <img src="assets/img/posts/post9.jpg" alt="">
-                            <h3>churrasco com legumes</h3>
+                            <h3><?= get_the_title() ?></h3>
                         </a>
                         <div class="bottom_card_last_post">
                             <a class="link_cat_last_post" href="#">comidas</a>
@@ -90,33 +121,14 @@
                             
                         </div>
                     </article>
-                    <article class="card_last_post">
-                        <a class="link_last_post" href="#">
-                            <img src="assets/img/posts/post9.jpg" alt="">
-                            <h3>churrasco com legumes</h3>
-                        </a>
-                        <div class="bottom_card_last_post">
-                            <a class="link_cat_last_post" href="#">comidas</a>
-                            <time>12/02/2022</time>
-                            
-                            <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
-                            
-                        </div>
-                    </article> 
-                    <article class="card_last_post">
-                        <a class="link_last_post" href="#">
-                            <img src="assets/img/posts/post9.jpg" alt="">
-                            <h3>churrasco com legumes</h3>
-                        </a>
-                        <div class="bottom_card_last_post">
-                            <a class="link_cat_last_post" href="#">comidas</a>
-                            <time>12/02/2022</time>
-                            
-                            <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
-                            
-                        </div>
-                    </article> 
+
+                    <?php endwhile; ?>
+
+                    
+                    
                 </section>
+
+                <?php endif; wp_reset_query(); wp_reset_postdata(); ?>
 
             </section>
 

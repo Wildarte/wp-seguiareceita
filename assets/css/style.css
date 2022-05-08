@@ -84,6 +84,7 @@
 .header_social a i{
     font-size: 1.2em;
     margin: auto;
+    display: flex;
 }
 
 .opt_top{
@@ -163,6 +164,7 @@
     font-size: 1.3em;
     margin: 2px 8px;
     padding: 0 10px;
+    font-weight: 300;
 }
 /* second menu */
 
@@ -273,10 +275,11 @@
 /* sidebar one */
 .sidebar_1{
     flex-basis: calc(30% - 20px);
-    padding: 0px 10px;
+    padding: 10px 0;
     margin: 72px 10px;
     position: sticky;
     top: 10px;
+    border-top: 2px solid #F3F4F6;
 }
 .sidebar_1 form input{
     width: 100%;
@@ -316,6 +319,10 @@
 }
 .sidebar_1 label.wp-block-search__label{
     padding-bottom: 40px;
+}
+.sidebar_1 h2{
+    font-weight: 400;
+    line-height: 2em;
 }
 
 /* sidebar one */
@@ -573,7 +580,38 @@ footer.footer{
 /* control pages */
 
 
+.wp-block-tag-cloud a{
+    display: inline;
+    padding: 5px 10px;
+    border: 1px solid var(--color-dark-main);
+    border-radius: 15px;
+    color: var(--color-dark-main);
+    font-size: .9em!important;
+    text-align: center;
+}
 
+
+
+.wp-block-categories-list.wp-block-categories li a{
+    display: block;
+    margin: 5px 0!important;
+    padding: 0!important;
+    color: var(--color-dark-main);
+    font-size: 1.2em;
+}
+.wp-block-categories-list.wp-block-categories li{
+    position: relative;
+    padding-left: 10px;
+}
+.wp-block-categories-list.wp-block-categories li::before{
+    content: "";
+    width: 4px;
+    height: 100%;
+    background-color: var(--color-dark-main);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 @media(max-width: 1024px){
     .sec_intro_content > img{
@@ -624,6 +662,7 @@ footer.footer{
     .opt_top_content ul{
         position: absolute;
         top: 100%;
+        left: 0;
         width: 100%;
         z-index: 10;
         flex-wrap: wrap;

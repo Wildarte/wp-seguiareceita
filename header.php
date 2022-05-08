@@ -4,20 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/bootstrap-icons-1.8.1/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/css/m-caroussel.css">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/post.css">
-    <link rel="stylesheet" href="assets/css/category.css">
     <title>Segui a Receita</title>
     <!-- wp header -->
     <?php wp_head(); ?>
     <!-- wp header -->
 </head>
-<body>
+<body style="background-color: <?= is_single() ? "#F0F0F0" : ""; ?>">
 
     <header class="header">
         <div class="header_content container_full">
@@ -37,7 +29,7 @@
                         </div>
                     </div>
                     <div class="header_form">
-                        <form action="<?php get_home_url() ?>">
+                        <form action="<?= get_home_url() ?>">
                             <input type="search" name="s" id="" placeholder="buscar receitas...">
                             <button type="submit"><i class="bi bi-search"></i></button>
                         </form>
