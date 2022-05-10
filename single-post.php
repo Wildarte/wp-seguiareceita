@@ -109,15 +109,14 @@
                     <?php while($results_cat_post->have_posts()): $results_cat_post->the_post(); ?>
 
                     <article class="card_last_post">
-                        <a class="link_last_post" href="#">
-                            <img src="assets/img/posts/post9.jpg" alt="">
+                        <a class="link_last_post" href="<?= get_the_permalink(); ?>">
+                            <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="">
                             <h3><?= get_the_title() ?></h3>
                         </a>
                         <div class="bottom_card_last_post">
-                            <a class="link_cat_last_post" href="#">comidas</a>
-                            <time>12/02/2022</time>
+                        <p><?= get_the_category_list() ?> <time><?= get_the_date('d/m/Y'); ?></time></p>
                             
-                            <a class="link_excerpt_last_post" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit fugit soluta laboriosam neque</a>
+                            <a class="link_excerpt_last_post" href="<?= get_the_permalink(); ?>"><?= get_the_excerpt(); ?></a>
                             
                         </div>
                     </article>

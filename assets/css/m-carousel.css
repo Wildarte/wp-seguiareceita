@@ -58,8 +58,24 @@
 .m_carousel .owl-nav button.owl-prev{
     left: 10px;
 }
-.owl-dots{
-    display: none;
+.m_carousel .owl-dots{
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.m_carousel .owl-dots button{
+    font-size: 2em;
+    border: 1px solid var(--color-main);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin: 5px;
+    background-color: var(--color-yellow);
+}
+.m_carousel .owl-dots button.active{
+    background-color: var(--color-main);
 }
 
 @media(max-width: 768px){

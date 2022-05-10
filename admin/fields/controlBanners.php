@@ -189,7 +189,7 @@ function display_banner_images(){
 
 
             <!-- 
-            <input type="text" class="img" name="show_ads_images[0][0]" id="show_ads_images" value="">
+            <input type="text" class="img" name="show_banner_images[0][0]" id="show_banner_images" value="">
              -->
             <input type="text" style="width: 580px" class="link_ads" name="" id="" value="" placeholder="link...">
         </div>
@@ -216,7 +216,7 @@ function display_banner_images(){
 
             <?php
 
-                $ads_posted = get_option('show_ads_images');
+                $ads_posted = get_option('show_banner_images');
 
                 if(is_array($ads_posted)) $total_ads = count($ads_posted);
                 
@@ -228,14 +228,14 @@ function display_banner_images(){
                             ?>
                                 <div class="ads_left">
                                     <img src="<?= $ads_posted[$item][$subitem]; ?>" alt=""><br>
-                                    <input type="hidden" class="ads_input_img" name="show_ads_images[<?= $item ?>][<?= $subitem ?>]" value="<?= $ads_posted[$item][$subitem]; ?>">
+                                    <input type="hidden" class="ads_input_img" name="show_banner_images[<?= $item ?>][<?= $subitem ?>]" value="<?= $ads_posted[$item][$subitem]; ?>">
                                 </div>
                             <?php
                         }else 
                             if($subitem == 1){
                             ?>
                                 <div class="ads_right">
-                                    <input type="text" style="width: 100%;" class="ads_input_link" name="show_ads_images[<?= $item ?>][<?= $subitem ?>]" id="" readonly value="<?= $ads_posted[$item][$subitem]; ?>">
+                                    <input type="text" style="width: 100%;" class="ads_input_link" name="show_banner_images[<?= $item ?>][<?= $subitem ?>]" id="" readonly value="<?= $ads_posted[$item][$subitem]; ?>">
                                 </div>
                             <?php
                         }
@@ -281,7 +281,7 @@ function display_banner_images(){
                 let input_img = document.createElement('input');
                 input_img.setAttribute('type', 'hidden');
                 input_img.setAttribute('class','ads_input_img');
-                input_img.setAttribute('name', 'show_ads_images['+item+'][0]');
+                input_img.setAttribute('name', 'show_banner_images['+item+'][0]');
                 input_img.setAttribute('readonly','readonly');
                 input_img.setAttribute('value', img_ads.getAttribute('src'));
 
@@ -295,7 +295,7 @@ function display_banner_images(){
                 let input_link = document.createElement('input');
                 input_link.setAttribute('type', 'text');
                 input_link.setAttribute('class', 'ads_input_link')
-                input_link.setAttribute('name','show_ads_images['+item+'][1]');
+                input_link.setAttribute('name','show_banner_images['+item+'][1]');
                 input_link.setAttribute('value', link_ads.value);
                 input_link.setAttribute('readonly','readonly');
                 input_link.setAttribute('style', 'width: 100%');
@@ -335,8 +335,8 @@ function display_banner_images(){
                 const rows_link = document.getElementsByClassName('ads_input_link');
             
                 for(let i = 0; i < rows_img.length; i++){
-                    rows_img[i].setAttribute('name','show_ads_images['+i+'][0]');
-                    rows_link[i].setAttribute('name','show_ads_images['+i+'][1]');
+                    rows_img[i].setAttribute('name','show_banner_images['+i+'][0]');
+                    rows_link[i].setAttribute('name','show_banner_images['+i+'][1]');
                 }
                 
             }
@@ -357,16 +357,16 @@ function display_banner_images(){
             let input = document.createElement('input');
             input.setAttribute('type','text');
             input.setAttribute('class', 'img');
-            input.setAttribute('name', `show_ads_images[${item}][${subitem}]`);
-            input.setAttribute('id','show_ads_images');
+            input.setAttribute('name', `show_banner_images[${item}][${subitem}]`);
+            input.setAttribute('id','show_banner_images');
 
             subitem++;
 
             let link = document.createElement('input');
             link.setAttribute('type','text');
             link.setAttribute('class', 'link');
-            link.setAttribute('name', `show_ads_images[${item}][${subitem}]`);
-            link.setAttribute('id','show_ads_images');
+            link.setAttribute('name', `show_banner_images[${item}][${subitem}]`);
+            link.setAttribute('id','show_banner_images');
 
             document.querySelector('.ads').append(input);
             document.querySelector('.ads').append(link);

@@ -4,47 +4,44 @@
 
     <?php  if(!is_paged()): ?>
 
+       
+
         <section class="sec_intro">
+
+            <?php 
+                $post_ads = get_option('show_banner_images');
+
+                if(!empty($post_ads)): 
+            ?>
+
             <div class="sec_intro_content container">
                 <img class="book_img" src="<?= get_template_directory_uri() ?>/assets/img/book.png" alt="">
                 <img class="book_img_response" src="<?= get_template_directory_uri() ?>/assets/img/book-mobile.png" alt="">
                 <img class="book_img_response2" src="<?= get_template_directory_uri() ?>/assets/img/book-mobile2.png" alt="">
                 <div class="owl-carousel m_carousel">
                 <?php 
-                    
-                    $post_ads = get_option('show_ads_images');
 
-                    if(!empty($post_ads)):
-
-                        for($i = 0; $i < count($post_ads); $i++):
+                    for($i = 0; $i < count($post_ads); $i++):
                 
                 ?>
                     <div class="item_carousel">
                         <a href="<?= $post_ads[$i][1] ?>">
-                            <img src="<?= $post_ads[$i][0] ?>" alt="">
+                            <img src="<?= $post_ads[$i][0] ?>" alt="<?= get_image_alt(get_the_ID()) ?>">
                         </a>
                     </div>
 
-                    <?php endfor; endif; ?>
+                    <?php endfor; ?>
                     
                 </div>
             </div>
+            <?php endif; ?>
         </section>
 
         <section class="section_second_menu container_full">
 
             <div class="content_second_menu container">
                 
-            <?php wp_nav_menu(['theme_location' => 'secondary_menu', 'container_class' => 'second_menu']); ?><!-- 
-                <ul class="second_menu">
-                    <li><a href=""><img src="assets/img/icons/cake-icon.png" alt=""> Bolos</a></li>
-                    <li><a href=""><img src="assets/img/icons/lanche-icon.png" alt=""> Lanches</a></li>
-                    <li><a href=""><img src="assets/img/icons/massa-icon.png" alt=""> Massas</a></li>
-                    <li><a href=""><img src="assets/img/icons/torta-icon.png" alt=""> Tortas</a></li>
-                    <li><a href=""><img src="assets/img/icons/sobremesa-icon.png" alt=""> Sobremesas</a></li>
-                    <li><a href=""><img src="assets/img/icons/mousse.png" alt=""> Mousses</a></li> 
-                </ul>
-                 -->
+            <?php wp_nav_menu(['theme_location' => 'secondary_menu', 'container_class' => 'second_menu']); ?>
                  
             </div>
 
@@ -110,7 +107,7 @@
 
                         <article class="card_content_one">
                             <div class="bord_icon_post">
-                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="">
+                                <img class="img_icon_post" src="<?= get_template_directory_uri() ?>/assets/img/logo-small.png" alt="Segui a receita - as melhores receitas">
                             </div>
                             <a href="<?= get_the_permalink(); ?>">
                                 <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="<?= get_image_alt(get_the_ID()) ?>">
@@ -176,13 +173,11 @@
 
                         <article class="card_last_post">
                             <a class="link_last_post" href="<?= get_the_permalink() ?>">
-                                <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="">
+                                <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="<?= get_image_alt(get_the_ID()) ?>">
                                 <h3><?= get_the_title(); ?></h3>
                             </a>
                             <div class="bottom_card_last_post">
-                                <?= get_categories() ?>
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time><?= get_the_date(); ?></time>
+                                <p><?= get_the_category_list() ?> <time><?= get_the_date('d/m/Y'); ?></time></p>
                                 
                                 <a class="link_excerpt_last_post" href="<?= get_the_permalink() ?>"><?= get_the_excerpt(); ?></a>
                                 
@@ -206,21 +201,7 @@
                 
                 <?php get_sidebar('home-two'); ?>
 
-                <!-- 
-                <aside class="sidebar_2">
-                    <a href="#">
-                        <img src="assets/img/ads3.jpg" alt="">
-                    </a>
-
-                    <a href="#">
-                        <img src="assets/img/ads4.jpg" alt="">
-                    </a>
-
-                    <a href="#">
-                        <img src="assets/img/ads5.jpg" alt="">
-                    </a>
-                </aside>
-                 -->
+               
 
             </div>
 

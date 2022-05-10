@@ -33,6 +33,9 @@
     text-transform: uppercase;
     margin-bottom: 20px;
 }
+.content_post_left img{
+    width: 100%;
+}
 .content_post_left h2{
     font-size: 1.4em;
     text-transform: uppercase;

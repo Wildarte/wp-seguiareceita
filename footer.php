@@ -6,8 +6,9 @@
                     $custom_logo_id = get_theme_mod( 'custom_logo' );
                     $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
                 ?>
-                <img src="<?= $logo[0] ?>" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex nemo, cupiditate eveniet a autem qui alias numquam velit magni mollitia dolore ipsa, provident facilis. Corporis amet eius consequatur quos voluptatum.</p>
+                <img src="<?= $logo[0] ?>" alt="Segui a Receita">
+                <p>Cozinhar, preparar aquela sobremesa e ver o sorrizo no rosto das pessoas que amamos, isso não tem preço.</p>
+                <p>É sobre fazer o que amamos e nos da prazer, pois a vida deve ser vivida com momento mágicos</p>
             </div>
 
             <div class="footer_categories">
@@ -25,7 +26,7 @@
                     <h4>Contato</h4>
 
                     <ul>
-                        <li><a href="mailto:contato@dominio.com"><i class="bi bi-envelope"></i> contato@dominio.com</a></li>
+                        <li><a href="mailto:contato@seguiareceita.com"><i class="bi bi-envelope"></i> contato@seguiareceita.com</a></li>
                     </ul>
                 </div>                
                 
@@ -33,8 +34,8 @@
                     <h4>Redes sociais</h4>
 
                     <ul>
-                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                        <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/seguiareceita"><i class="bi bi-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/seguiareceita.of/"><i class="bi bi-instagram"></i></a></li>
                     </ul>
                 </div>
 
@@ -46,10 +47,6 @@
             <p><a href="#">seguieareceita.com</a></p>
         </div>
     </footer>
-
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/script.js"></script>
 
     <!-- wp footer -->
     <?php wp_footer(); ?>

@@ -36,8 +36,8 @@
                     </div>
 
                     <div class="header_social">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.facebook.com/seguiareceita"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/seguiareceita.of/"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
                 

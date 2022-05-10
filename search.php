@@ -27,13 +27,11 @@
 
                         <article class="card_last_post">
                             <a class="link_last_post" href="<?= get_the_permalink() ?>">
-                                <img src="assets/img/posts/post9.jpg" alt="">
+                                <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="">
                                 <h3><?= get_the_title(); ?></h3>
                             </a>
                             <div class="bottom_card_last_post">
-                                <?= get_categories() ?>
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time><?= get_the_date() ?></time>
+                                <p><?= get_the_category_list() ?> <time><?= get_the_date('d/m/Y'); ?></time></p>
                                 
                                 <a class="link_excerpt_last_post" href="#"><?= get_the_excerpt(); ?></a>
                                 
@@ -51,8 +49,8 @@
                     <?php else: ?>
 
                     <header class="header_last_post">
-                        <h2 style="margin: 5px 0;">Não encontramos o que você buscou</h2>
-                        <h2 style="margin: 5px 0;">Mas talvez você goste desses resultados</h2>
+                        <h2 style="margin: 5px 0; color: var(--color-main)">Não encontramos o que você buscou</h2>
+                        <h2 style="margin: 5px 0; color: var(--color-dark-main)">Mas talvez você goste desses resultados</h2>
                     </header>
 
                     <section class="posts_last_post">
@@ -61,6 +59,7 @@
 
                             $args = [
                                 'post_type' => 'post',
+                                'posts_per_page' => 8
                             ];
 
                             $results = new WP_Query($args);
@@ -72,15 +71,13 @@
 
                         <article class="card_last_post">
                             <a class="link_last_post" href="<?= get_the_permalink() ?>">
-                                <img src="assets/img/posts/post9.jpg" alt="">
+                                <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="">
                                 <h3><?= get_the_title(); ?></h3>
                             </a>
                             <div class="bottom_card_last_post">
-                                <?= get_categories() ?>
-                                <a class="link_cat_last_post" href="#">comidas</a>
-                                <time><?= get_the_date() ?></time>
+                                <p><?= get_the_category_list() ?> <time><?= get_the_date('d/m/Y'); ?></time></p>
                                 
-                                <a class="link_excerpt_last_post" href="#"><?= get_the_excerpt(); ?></a>
+                                <a class="link_excerpt_last_post" href="<?= get_the_permalink(); ?>"><?= get_the_excerpt(); ?></a>
                                 
                             </div>
                         </article>
