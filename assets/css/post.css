@@ -41,10 +41,14 @@
     text-transform: uppercase;
     margin: 40px 0 10px;
 }
+.content_post_left h3{
+    font-size: 1.2em;
+    margin: 10px 0;
+}
 .content_post_left ul{
     list-style: disc;
+    margin: 10px 0 30px;
     margin-left: 40px;
-    margin-top: 30px;
 }
 .content_post_left ul li{
     font-size: 1.1em;

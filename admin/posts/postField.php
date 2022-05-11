@@ -45,7 +45,6 @@ function cmb2_posts(){
         // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
     ) );
 
-
     $cmb_preparo = new_cmb2_box([
         'id' => 'box_modo_preparo',
         'title' => 'Modo de preparo',

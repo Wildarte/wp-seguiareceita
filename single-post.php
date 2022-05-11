@@ -21,6 +21,8 @@
                     <?= get_the_content(); ?>
                         
 
+                    <!-- 
+
                     <?php
                         //caso o botão exibir receita esteja marcado 
                         if(get_post_meta( get_the_ID(), 'show_receita', true )):
@@ -60,7 +62,7 @@
 
                         endif;
                     ?>
-
+                    -->
 
                 </div>
 

@@ -628,6 +628,45 @@ footer.footer{
     left: 0;
 }
 
+.default_erro{
+    text-align: center;
+}
+.default_erro img{
+    margin: 10px auto;
+}
+.default_erro form.form_error{
+    margin: 10px auto;
+    max-width: 590px;
+    padding: 10px;
+}
+.default_erro form.form_error p{
+    margin: 10px auto;
+}
+.form_group_error{
+    border: 1px solid #888;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.default_erro form.form_error input{
+    font-size: 1.4em;
+    border: none;
+    outline: none;
+    width: 90%;
+}
+.default_erro form.form_error button{
+    width: 10%;
+    height: 100%;
+    font-size: 1.2em;
+    border: none;
+    background-color: transparent;
+    text-align: end;
+    padding: 4px;
+    cursor: pointer;
+}
+
 @media(max-width: 1024px){
     .sec_intro_content > img{
         top: -8px;
